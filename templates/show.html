@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} update {% endblock title %}
+
+{% block nav %}
+    <nav class="navbar navbar-expand-xl bg-success navbar-dark ">
+        <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item "><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item "><a  class="nav-link" href="{% url 'register' %}">register</a></li>
+            <li class="nav-item "><a  class="nav-link" href="{% url 'login' %}">login</a></li>
+            <li class="nav-item "><a  class="nav-link" href="{% url 'profile' %}">Table</a></li>
+           </ul>
+            </div>
+           
+    </nav>
+   
+    {% endblock nav %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col-sm-4 offset-sm-4 ">
+    <h4 class=" text-center alert alert-info ">update student form</h4>
+    <form action="" method="POST">
+        
+
+        {% csrf_token %}
+        {{ form | crispy}}
+
+        <input type="submit" class="btn btn-primary">
+    </form>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}

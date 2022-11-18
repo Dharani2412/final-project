@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} table {% endblock title %}
+
+{% block nav %}
+    <nav class="navbar navbar-expand-xl bg-success navbar-dark ">
+        <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item "><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item "><a  class="nav-link" href="{% url 'stu' %}">register</a></li>
+           </ul>
+            </div>
+           
+    </nav>
+   
+    {% endblock nav %}
+
+
+{% block content %}
+<div class="cointainer m-10">
+    <div class="col-sm-7 offset-sm-2">
+    <h4 style="text-align:center;background: lightblue;">registered Students</h4>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>email</th>         
+        </tr>
+        {% for st in fm %}
+        <tr>
+            <td>{{ st.id}}</td>
+
+            <td>{{ st.first_name}}</td>
+
+            <td>{{ st.last_name}}</td>
+
+            <td>{{ st.email}}</td>
+           
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</div>
+</div>
+
+{% endblock content %}
